@@ -1,0 +1,1 @@
+# Script chuẩn bị Host CentOS 7

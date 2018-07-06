@@ -1,0 +1,21 @@
+host:
+  hostname: cephaio
+  ip: 172.16.4.204
+hostfile:
+  hosts: a b 
+  a:
+    ip: 123.123.123.123
+  b:
+    ip: 123.123.45.123
+    
+network:
+  interface: ens160 ens192 
+  ens160:
+    ip: 172.16.4.204/24
+    gateway: 172.16.10.1
+    dns: 8.8.8.8
+  ens192:
+    ip: 10.0.10.1/24
+
+root:
+  password: 123456a@
