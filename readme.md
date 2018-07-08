@@ -1,5 +1,10 @@
 # Script chuẩn bị Host CentOS 7
 ---
+## Mục đích
+- Cấu hình IP
+- Cấu hình host, host file
+- Cấu hình Firewalld
+- Cấu hình SELinux
 ## Cách sử dụng
 > Script cần được chạy bằng user `root`
 ### Thiết lập File config của script
