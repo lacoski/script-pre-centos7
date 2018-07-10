@@ -5,6 +5,7 @@
 - Cấu hình host, host file
 - Cấu hình Firewalld
 - Cấu hình SELinux
+- Cài đặt các Package cần thiết
 ## Cách sử dụng
 > Script cần được chạy bằng user `root`
 ### Thiết lập File config của script
@@ -44,7 +45,7 @@ VD:
 host:
   hostname: cephaio
   ip: 172.16.4.204
-  
+
 hostfile:
   hosts: a b
   a:
