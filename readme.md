@@ -39,9 +39,9 @@ package:
 
 root:
   password: <passwd>
-
+```
 VD:
-
+```
 host:
   hostname: cephaio
   ip: 172.16.4.204
