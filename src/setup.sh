@@ -19,11 +19,13 @@ eval $(parse_yaml "$base_path/config/config.yaml" "config_")
 
 # Setup hostname
 hostname_conf(){
+    echo -e "\n"
     echo "[${green} Notification ${reset}] Setup Hostname " && sleep 2s
     hostnamectl set-hostname $config_host_hostname
 }
 
 pre_setup_install(){
+    echo -e "\n"
     echo "[${green} Notification ${reset}] Install required package " && sleep 2s
     
     var=$(echo $config_package_lists | tr " " "\n")
@@ -38,6 +40,7 @@ pre_setup_install(){
 
 ## setup ip interface
 ip_conf(){
+    echo -e "\n"
     echo "[${green} Notification ${reset}] Setup IP CONFIG " && sleep 2s
 
     var=$(echo $config_network_interface | tr " " "\n")
@@ -73,6 +76,7 @@ ip_conf(){
 
 ## setup selinux
 selinux_conf(){    
+    echo -e "\n"
     echo "[${green} Notification ${reset}] Setup SELinux" && sleep 2s
     setenforce 0
     sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
@@ -81,6 +85,7 @@ selinux_conf(){
 
 ## setup hostfile
 host_file_conf(){
+    echo -e "\n"
     echo "[${green} Notification ${reset}] Setup Host File" && sleep 2s    
     var=$(echo $config_hostfile_hosts | tr " " "\n")
     for x in $var
@@ -94,6 +99,7 @@ host_file_conf(){
 
 # setup firewalld
 firewalld_conf(){
+    echo -e "\n"
     echo "[${green} Notification ${reset}] Setup Firewalld " && sleep 2s
     systemctl stop firewalld
     systemctl disable firewalld
@@ -101,6 +107,7 @@ firewalld_conf(){
 
 # check hosts node
 host_checks(){
+    echo -e "\n"
     echo "[${green} Notification ${reset}] Checking list host " && sleep 2s
     
     var=$(echo $config_host_checkhosts | tr " " "\n")
