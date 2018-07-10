@@ -25,10 +25,12 @@ hostname_conf(){
 
 pre_setup_install(){
     echo "[${green} Notification ${reset}] Install required package " && sleep 2s
+    
     var=$(echo $config_package_lists | tr " " "\n")
     for x in $var
     do
-        echo "Installing $x" 
+        echo -e "\n"
+        echo "[${red} Installing ${reset}] $x" 
         yum install -y $x
     done  
     chmod +x tool/*
@@ -41,7 +43,7 @@ ip_conf(){
     var=$(echo $config_network_interface | tr " " "\n")
     for x in $var
     do
-        echo "Setup interface $x"            
+        echo "[${red} Setup interface ${reset}]  $x"            
         temp_ip=config_network_"$x"_ip
         var_ip=${!temp_ip}
         #echo $var_ip       
@@ -83,7 +85,7 @@ host_file_conf(){
     var=$(echo $config_hostfile_hosts | tr " " "\n")
     for x in $var
     do
-        echo "Setup host $x" 
+        echo "[${red} Setup host ${reset}]  $x"        
         temp_ip_host=config_hostfile_"$x"_ip
         var_ip=${!temp_ip_host}           
         ./tool/manage-etc-hosts.sh add $x $var_ip       
@@ -95,6 +97,23 @@ firewalld_conf(){
     echo "[${green} Notification ${reset}] Setup Firewalld " && sleep 2s
     systemctl stop firewalld
     systemctl disable firewalld
+}
+
+# check hosts node
+host_checks(){
+    echo "[${green} Notification ${reset}] Checking list host " && sleep 2s
+    
+    var=$(echo $config_host_checkhosts | tr " " "\n")
+    for x in $var
+    do
+        echo -e "\n"
+        echo "[${red} Check host ${reset}] $x" 
+        if [ $? -ne 0 ]; then
+            echo ${h} host is down
+        else
+            echo ${h} host is up
+        fi
+    done  
 }
 
 # RUN
@@ -114,3 +133,5 @@ selinux_conf
 host_file_conf
 
 firewalld_conf
+
+host_checks
