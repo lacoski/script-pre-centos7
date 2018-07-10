@@ -6,6 +6,7 @@
 - Cấu hình Firewalld
 - Cấu hình SELinux
 - Cài đặt các Package cần thiết
+- Kiểm tra trạng thái các node (theo mô hình)
 ## Cách sử dụng
 > Script cần được chạy bằng user `root`
 ### Thiết lập File config của script
