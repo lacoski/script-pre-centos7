@@ -32,6 +32,10 @@ network:
     dns: <dns>
   <ten-interface>:
     ....
+
+package:
+  lists: <list-package>
+
 root:
   password: <passwd>
 
@@ -40,6 +44,7 @@ VD:
 host:
   hostname: cephaio
   ip: 172.16.4.204
+  
 hostfile:
   hosts: a b
   a:
@@ -55,6 +60,9 @@ network:
     dns: 8.8.8.8
   ens192:
     ip: 10.0.10.1/24
+
+package:
+  lists: vim wget crudini fping sshpass
 
 root:
   password: 123456a@

@@ -24,7 +24,13 @@ hostname_conf(){
 }
 
 pre_setup_install(){
-    yum install sshpass -y
+    echo "[${green} Notification ${reset}] Install required package " && sleep 2s
+    var=$(echo $config_package_lists | tr " " "\n")
+    for x in $var
+    do
+        echo "Installing $x" 
+        yum install -y $x
+    done  
     chmod +x tool/*
 }
 

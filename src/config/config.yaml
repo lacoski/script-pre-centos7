@@ -17,5 +17,8 @@ network:
   ens192:
     ip: 10.0.10.1/24
 
+package:
+  lists: wget crudini fping sshpass
+
 root:
   password: 123456a@
