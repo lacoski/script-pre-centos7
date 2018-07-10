@@ -27,7 +27,7 @@ hostname_conf(){
 pre_setup_install(){
     echo -e "\n"
     echo "[${green} Notification ${reset}] Install required package " && sleep 2s
-    
+    yum install -y epel-release
     var=$(echo $config_package_lists | tr " " "\n")
     for x in $var
     do
@@ -113,12 +113,12 @@ host_checks(){
     var=$(echo $config_host_checkhosts | tr " " "\n")
     for x in $var
     do
-        echo -e "\n"
         echo "[${red} Check host ${reset}] $x" 
-        if [ $? -ne 0 ]; then
-            echo ${h} host is down
+        fping -u $x >& /dev/null
+        if [ $? -eq 0 ]; then
+            echo $x host is up
         else
-            echo ${h} host is up
+            echo $x host is down
         fi
     done  
 }

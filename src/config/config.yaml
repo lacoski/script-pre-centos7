@@ -1,7 +1,7 @@
 host:
   hostname: cephaio
   ip: 172.16.4.204
-  checkhosts: 172.16.4.205 172.4.206f
+  checkhosts: 172.16.4.205 172.16.4.206
 
 hostfile:
   hosts: a b 
@@ -20,7 +20,7 @@ network:
     ip: 10.0.10.1/24
 
 package:
-  lists: epel-release wget crudini fping sshpass
+  lists: wget crudini fping sshpass
 
 root:
   password: 123456a@
